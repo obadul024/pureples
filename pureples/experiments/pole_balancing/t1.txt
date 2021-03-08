@@ -1,0 +1,60 @@
+24
+4
+
+ ****** Running generation 0 ****** 
+
+Population's average fitness: -91.93021 stdev: 0.07710
+Best fitness: -91.77179 - size: (1, 6) - species 1 - id 30
+Average adjusted fitness: 0.149
+Mean genetic distance 1.492, standard deviation 0.488
+Population of 50 members in 1 species:
+   ID   age  size  fitness  adj fit  stag
+  ====  ===  ====  =======  =======  ====
+     1    0    50    -91.8    0.149     0
+Total extinctions: 0
+Generation time: 2.086 sec
+
+ ****** Running generation 1 ****** 
+
+Population's average fitness: -94.54647 stdev: 6.60800
+Best fitness: -91.75071 - size: (1, 6) - species 1 - id 81
+Average adjusted fitness: 0.886
+Mean genetic distance 1.814, standard deviation 0.653
+Population of 50 members in 2 species:
+   ID   age  size  fitness  adj fit  stag
+  ====  ===  ====  =======  =======  ====
+     1    1    38    -91.8    0.886     0
+     2    0    12       --       --     0
+Total extinctions: 0
+Generation time: 2.099 sec (2.092 average)
+
+ ****** Running generation 2 ****** 
+
+Population's average fitness: -91.91662 stdev: 0.07911
+Best fitness: -91.77752 - size: (1, 6) - species 1 - id 106
+Average adjusted fitness: 0.143
+Mean genetic distance 1.963, standard deviation 0.643
+Population of 50 members in 2 species:
+   ID   age  size  fitness  adj fit  stag
+  ====  ===  ====  =======  =======  ====
+     1    2    23    -91.8    0.163     1
+     2    1    27    -91.8    0.123     0
+Total extinctions: 0
+Generation time: 1.998 sec (2.061 average)
+
+ ****** Running generation 3 ****** 
+
+Population's average fitness: -92.25294 stdev: 13.27917
+Best fitness: -9.35251 - size: (1, 3) - species 1 - id 171
+Average adjusted fitness: 0.233
+Mean genetic distance 1.843, standard deviation 0.576
+Population of 50 members in 2 species:
+   ID   age  size  fitness  adj fit  stag
+  ====  ===  ====  =======  =======  ====
+     1    3    26     -9.4    0.245     0
+     2    2    24    -91.8    0.221     0
+Total extinctions: 0
+Generation time: 2.335 sec (2.129 average)
+
+ ****** Running generation 4 ****** 
+

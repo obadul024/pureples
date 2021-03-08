@@ -12,12 +12,14 @@ from pureples.hyperneat.hyperneat import create_phenotype_network
 
 # Network input, hidden and output coordinates.
 input_coordinates = []
-for i in range(0,4):
+for i in range(0,24):
     input_coordinates.append((-1. +(2.*i/3.), -1.))
-hidden_coordinates = [[(-0.5, 0.5), (0.5, 0.5)], [(-0.5, -0.5), (0.5, -0.5)]]
-output_coordinates = [(-1., 1.), (1., 1.)]
-activations = len(hidden_coordinates) + 2
 
+print(len(input_coordinates))
+hidden_coordinates = [[(-0.5, 0.5), (0.5, 0.5)], [(-0.5, -0.5), (0.5, -0.5)]]
+output_coordinates = [(-1., 1.),(0.,1.),(1.,1.),(2., 1.)]
+activations = len(hidden_coordinates) + 2
+print(len(output_coordinates))
 sub = Substrate(input_coordinates, output_coordinates, hidden_coordinates)
 
 # Config for CPPN.
@@ -28,7 +30,8 @@ config = neat.config.Config(neat.genome.DefaultGenome, neat.reproduction.Default
 
 # Use the gym_runner to run this experiment using HyperNEAT.
 def run(gens, env):
-    winner, stats = run_hyper(gens, env, 500, config, sub, activations)
+    cppn_flag = False
+    winner, stats = run_hyper(gens, env, 500, config, sub, activations, cppn_flag)
     print("hyperneat_polebalancing done") 
     return winner, stats
 
@@ -38,7 +41,8 @@ if __name__ == '__main__':
     # Setup logger and environment.
     logger = logging.getLogger()
     logger.setLevel(logging.INFO)
-    env = gym.make("CartPole-v1")
+    env = gym.make("BipedalWalker-v3")
+    
 
     # Run!
     winner = run(100, env)[0]
