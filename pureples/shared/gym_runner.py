@@ -65,14 +65,17 @@ def run_es(gens, env, max_steps, config, params, substrate, max_trials=100, outp
 
 
 # Generic OpenAI Gym runner for HyperNEAT.
-def run_hyper(gens, env, max_steps, config, substrate, activations, max_trials=100, activation="sigmoid", output=True):
+def run_hyper(gens, env, max_steps, config, substrate, activations,cppn_flag, max_trials=100, activation="sigmoid", output=True):
     trials = 1
 
     def eval_fitness(genomes, config):
 
         for idx, g in genomes:
-            cppn = neat.nn.FeedForwardNetwork.create(g, config)
-            net = create_phenotype_network(cppn, substrate, activation)
+            if cppn_flag:
+                net = neat.nn.RecurrentNetwork.create(g, config)
+            else:
+                cppn = neat.nn.FeedForwardNetwork.create(g, config)
+                net = create_phenotype_network(cppn, substrate, activation)
 
             fitnesses = []
 
@@ -85,8 +88,12 @@ def run_hyper(gens, env, max_steps, config, substrate, activations, max_trials=1
                 for j in range(max_steps):
                     for k in range(activations):
                         o = net.activate(ob)
-                    action = np.argmax(o)
+                        #print("this is    o",o)
+                    #action = np.argmax(o)
+                    action = o
+                    
                     ob, reward, done, info = env.step(action)
+                    print("Obervation : ",done)
                     total_reward += reward
                     if done:
                         break

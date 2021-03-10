@@ -25,7 +25,8 @@ config = neat.config.Config(neat.genome.DefaultGenome, neat.reproduction.Default
 
 
 def run(gens, env):
-    winner, stats = run_hyper(gens, env, 200, config, sub, activations, max_trials=0)
+    cppn_flag = False
+    winner, stats = run_hyper(gens, env, 200, config, sub, activations,cppn_flag, max_trials=0)
     print("hyperneat_mountain_car done") 
     return winner, stats
 
@@ -38,7 +39,7 @@ if __name__ == '__main__':
     env = gym.make("MountainCar-v0")
 
     # Run!
-    winner = run(200, env)[0]
+    winner = run(2, env)[0]
 
     # Save CPPN if wished reused and draw it + winner to file.
     cppn = neat.nn.FeedForwardNetwork.create(winner, config)
